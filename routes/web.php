@@ -20,3 +20,9 @@ Route::group(['prefix' => 'admin'], function () {
     $controllerName = 'UserController';
     Route::get('user', $controllerName.'@showProfile');
 });
+
+Route::when('admin/*', 'admin', array('post'));
+
+Route::post('admin', 'UserController@amdin');
+
+Route::resource('category','CategoryController');
